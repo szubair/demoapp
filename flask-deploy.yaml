@@ -10,13 +10,14 @@ spec:
   template:
     metadata:
       labels:
-        app: gke-flask
+        app: gke-flask-app
     spec:
       containers:
       - name: flask01
         image: sabeerz/flask-app1:v1
         ports:
         - containerPort: 5000
+          name: http-flask
 ---
 apiVersion: v1
 kind: Service
@@ -25,8 +26,9 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - port: 80
-    targetPort: 5000
+  - name: name-svc-port
+    targetPort: http-flask
+    port: 8080
     protocol: TCP
   selector:
     app: gke-flask-app

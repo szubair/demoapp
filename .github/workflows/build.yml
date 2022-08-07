@@ -2,9 +2,12 @@ name: Build
 
 on:
   workflow_call:
-    inputs:
-      branches:
-      - flask-gke # or the name of your main branch
+    secrets:
+      SONAR_TOKEN:
+        required: true
+      SONAR_HOST_URL: 
+        required: true
+      
 jobs:
   build:
     name: Build

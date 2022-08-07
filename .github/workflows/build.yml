@@ -1,7 +1,9 @@
 name: Build
+
 on:
   workflow_call:
-    branches:
+    inputs:
+      branches:
       - flask-gke # or the name of your main branch
 jobs:
   build:

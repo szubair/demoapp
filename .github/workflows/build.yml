@@ -1,8 +1,8 @@
 name: Build
 on:
-  push:
+  workflow_call:
     branches:
-      - master # or the name of your main branch
+      - flask-gke # or the name of your main branch
 jobs:
   build:
     name: Build

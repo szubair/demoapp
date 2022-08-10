@@ -1,5 +1,7 @@
 pipeline {
-   label sonar
+  agent {
+    label sonar
+  }
 
    stages {
       stage('SonarQube Analysis') {
@@ -9,8 +11,7 @@ pipeline {
       }
       stage('Docker Build') {
          steps {
- 	ssh into sonar;
-	    sh 'pwd;docker ps'
+	    echo 'pwd;docker ps'
          }
       }
       stage('Upload Image into GCR') {

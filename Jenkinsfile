@@ -1,15 +1,16 @@
 pipeline {
-   agent any
+   agent sonar
 
    stages {
       stage('SonarQube Analysis') {
          steps {
-            echo 'Hello World'
+            echo 'disable for now!'
          }
       }
       stage('Docker Build') {
          steps {
-            echo 'Hello World'
+ 	ssh into sonar;
+	    sh 'pwd;docker ps'
          }
       }
       stage('Upload Image into GCR') {

@@ -1,5 +1,5 @@
 pipeline {
-   agent sonar
+   label sonar
 
    stages {
       stage('SonarQube Analysis') {

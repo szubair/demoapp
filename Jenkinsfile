@@ -2,7 +2,7 @@ pipeline {
    agent any
 
    stages {
-      stage('SCM checkout') {
+      stage('SonarQube Analysis') {
          steps {
             echo 'Hello World'
          }

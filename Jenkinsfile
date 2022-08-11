@@ -16,7 +16,6 @@ pipeline {
 	    sh '''
 		docker build -t flaskapp-image:${BUILD_NUMBER} .; docker images
 	    	docker tag flaskapp-image:${BUILD_NUMBER} gcr.io/astute-quarter-352805/flask-sample/flaskapp-image:${BUILD_NUMBER}
-                sleep 1; docker images
 	   '''
          }
       }
@@ -24,7 +23,7 @@ pipeline {
          steps {
 	    script {
 	    withDockerRegistry(credentialsId: 'gcr:astute-quarter-352805', url: 'https://gcr.io') {
-              sh "docker push gcr.io/astute-quarter-35280/flask-sample/flaskapp-image:${BUILD_NUMBER}"
+              sh "docker push gcr.io/astute-quarter-352805/flask-sample/flaskapp-image:${BUILD_NUMBER}"
               }
             }
          }

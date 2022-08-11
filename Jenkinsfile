@@ -16,6 +16,7 @@ pipeline {
 	    sh '''
 		docker build -t flaskapp-image:${BUILD_NUMBER} .; docker images
 	    	docker tag flaskapp-image:${BUILD_NUMBER} gcr.io/astute-quarter-352805/flask-sample/flaskapp-image:${BUILD_NUMBER}
+                sleep 1; docker images
 	   '''
          }
       }

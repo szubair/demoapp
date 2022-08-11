@@ -12,7 +12,7 @@ pipeline {
       }
       stage('Docker Build') {
          steps {
-	    echo '${env.BUILD_NUMBER}'
+	    echo "${env.BUILD_NUMBER}"
 	    echo "${BUILD_NUMBER}"
 	/*
 	    sh ''docker ps'

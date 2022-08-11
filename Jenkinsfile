@@ -19,7 +19,7 @@ pipeline {
 	    echo "Build Num: ${env.BUILD_NUMBER}"
 	    sh '''
 		docker build -t flaskapp-image:${BUILD_NUMBER} .; docker images
-	    	docker tag gcr.io/astute-quarter-352805/flask-sample/flaskapp-image:${BUILD_NUMBER} flaskapp-image:${BUILD_NUMBER}
+	    	docker tag flaskapp-image:${BUILD_NUMBER} gcr.io/astute-quarter-352805/flask-sample/flaskapp-image:${BUILD_NUMBER}
 	   '''
          }
       }

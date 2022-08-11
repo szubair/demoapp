@@ -5,7 +5,7 @@ pipeline {
   }
   
   environment {
-    GCR_PROJECT_ID = "astute-quarter-352805"
+    GCR_PROJECT_ID = 'astute-quarter-352805'
   }
 
    stages {

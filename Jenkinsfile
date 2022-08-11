@@ -12,7 +12,11 @@ pipeline {
       }
       stage('Docker Build') {
          steps {
-	    echo 'pwd;docker ps'
+	    echo 'pwd;$BUILD_NUMBER'
+	/*
+	    sh ''docker ps'
+	    sh 'docker build -t flaskapp-image .; docker images'
+	*/
          }
       }
       stage('Upload Image into GCR') {

@@ -12,17 +12,14 @@ pipeline {
       }
       stage('Docker Build') {
          steps {
-	    echo "${env.BUILD_NUMBER}"
-	    echo "${BUILD_NUMBER}"
-	/*
-	    sh ''docker ps'
-	    sh 'docker build -t flaskapp-image .; docker images'
-	*/
+	    echo "Build Num: ${env.BUILD_NUMBER}"
+	    sh 'docker build -t flaskapp-image:${BUILD_NUMBER} .; docker images'
          }
       }
       stage('Upload Image into GCR') {
          steps {
-            echo 'Hello World'
+            echo 'Pushing images into GCR!'
+	    sh 'docker tag gcr.io/astute-quarter-352805/flask-sample/flaskapp-image:${BUILD_NUMBER}'
          }
       }
       stage('Deploy into k8s') {

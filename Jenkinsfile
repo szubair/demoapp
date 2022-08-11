@@ -4,10 +4,6 @@ pipeline {
     label 'sonar'
   }
   
-  environment {
-    GCR_PROJECT_ID = 'astute-quarter-352805'
-  }
-
    stages {
       stage('SonarQube Analysis') {
          steps {
@@ -26,9 +22,8 @@ pipeline {
       stage('Upload Image into GCR') {
          steps {
 	    script {
-	    echo "gcr: ${GCP_PROJECT_ID}"
-	    withDockerRegistry([credentialsId: "gcr:${GCP_PROJECT_ID}", url: "https://gcr.io"]) {
-              sh "docker push gcr.io/${GCP_PROJECT_ID}/flask-sample/flaskapp-image:${BUILD_NUMBER}"
+	    withDockerRegistry(credentialsId: 'gcr:astute-quarter-352805', url: 'https://gcr.io') {
+              sh "docker push gcr.io/astute-quarter-35280/flask-sample/flaskapp-image:${BUILD_NUMBER}"
               }
             }
          }

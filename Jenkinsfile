@@ -25,6 +25,7 @@ pipeline {
       }
       stage('Upload Image into GCR') {
          steps {
+	 echo "gcr: ${GCP_PROJECT_ID}"
 	    script {
 	     withDockerRegistry([credentialsId: "gcr:${GCP_PROJECT_ID}", url: "https://gcr.io"]) {
               sh "docker push gcr.io/${GCP_PROJECT_ID}/flask-sample/flaskapp-image:${BUILD_NUMBER}"

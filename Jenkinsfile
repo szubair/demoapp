@@ -13,6 +13,7 @@ pipeline {
       stage('Docker Build') {
          steps {
 	    echo "Build Num: ${env.BUILD_NUMBER}"
+	    sh 'id; pwd'
 	    sh 'docker build -t flaskapp-image:${BUILD_NUMBER} .; docker images'
          }
       }

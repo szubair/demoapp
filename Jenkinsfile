@@ -30,7 +30,8 @@ pipeline {
       }
       stage('Deploy into k8s') {
          steps {
-            echo 'Hello World'
+            echo 'Deploying to k8s cluster!'
+	    sh 'kubectl apply -f deploy-flask.yaml'
          }
       }
    }

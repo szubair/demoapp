@@ -1,14 +1,3 @@
-FROM python:alpine3.7
+FROM quay.io/wildfly/wildfly
 
-WORKDIR /app
-
-COPY app.py /app/app.py
-
-COPY requirements.txt /app/requirements.txt
-
-RUN pip install -r requirements.txt
-
-EXPOSE 5000
-
-CMD ["python", "/app/app.py"]
-
+ADD target/helloworld.war /opt/jboss/wildfly/standalone/deployments/

@@ -1,3 +1,3 @@
 # demoapp
 
-This is test deploy using spinnaker, gitHub & k8s.
+This is test deploy using wildfly & k8s.

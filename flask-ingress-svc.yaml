@@ -9,7 +9,7 @@ spec:
   - http:
       paths:
       - pathType: Prefix
-        path: "/hello"
+        path: /hello
         backend:
           service:
             name: flaskapp-svc
